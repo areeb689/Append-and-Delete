@@ -1,0 +1,67 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+int main(){
+    char* s = (char *)malloc(512000 * sizeof(char));
+    scanf("%s",s);
+    char* t = (char *)malloc(512000 * sizeof(char));
+    scanf("%s",t);
+    int k,i=0,l1,l2,del,append,same; 
+    scanf("%d",&k);
+    l1=strlen(s),l2=strlen(t);
+    if(strcmp(s,t)==0)
+        {
+        if(k%2==0 || k>=2*l1)
+            printf("Yes");
+        else
+            printf("No");
+    }
+    else
+    {
+        if(k>=2*l2)
+            printf("Yes");
+        else
+        {
+            while(i<l1 && i<l2)
+        {
+        if(s[i]==t[i])
+            i++;
+        else
+            break;
+    }
+    same=i;
+    del=l1-same;
+    append=l2-same;
+    if(del+append > k)
+        printf("No");
+            else
+            {
+                if((del+append)%2==0)
+        {
+        if(k%2==0)
+            printf("Yes");
+        else
+            printf("No");
+    }
+    else
+        {
+        if(k%2==0)
+            printf("No");
+        else
+            printf("Yes");
+    }
+        }
+        }
+    }
+    return 0;
+}
+
+
+
+
+
